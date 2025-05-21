@@ -14,9 +14,9 @@ This is a full‑stack web application built with **Laravel** as the backend and
 ## 🛠️ Tech Stack
 
 * **Framework**: Laravel 12 with Breeze (Vue + Inertia preset)
-* **Frontend**: Vue.js, Inertia.js, Axios
+* **Frontend**: Vue.js, Inertia.js
 * **Authentication**: Laravel Sanctum
-* **Database**: MySQL/PostgreSQL
+* **Database**: MySQL
 * **Tools**: Composer, NPM/Yarn, Laravel Artisan
 
 ## 📦 Installation
