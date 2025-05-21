@@ -1,10 +1,11 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, usePage } from '@inertiajs/vue3';
+import { ref } from 'vue';
 
 const props = defineProps({
   contacts: Array
-});
+})
 </script>
 
 <template>
@@ -62,9 +63,12 @@ const props = defineProps({
                                         <img class="h-10" :src="`/storage/${contact.avatar}`">
                                     </td>
                                     <td class="px-6 py-4">
-                                        <div>
+                                        <div class="space-x-4">
                                             <Link :href="route('contact.edit', contact)">
                                             Editar
+                                            </Link>
+                                            <Link :href="route('contact.destroy', contact)" method="delete" as="button">
+                                            Eliminar
                                             </Link>
                                         </div>
                                     </td>

@@ -90,6 +90,12 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        if($contact->avatar) {
+        Storage::disk('public')->delete($contact->avatar);
+        }
+
+        $contact->delete();
+
+        return to_route('contact.index');
     }
 }
