@@ -1,32 +1,31 @@
 # Vue.js + Laravel CRUD with User Authentication
 
-This is a full‑stack web application built with **Vue.js** for the frontend and **Laravel** for the backend. It features complete **CRUD functionality** and **user authentication**, including registration, login, and protected routes.
+This is a full‑stack web application built with **Laravel** as the backend and **Vue.js** integrated into it via **Laravel Breeze and Inertia.js**. It features complete **CRUD functionality** and **user authentication**, including registration, login, and protected routes.
 
 ## 🚀 Features
 
-* Full‑stack CRUD operations (Create, Read, Update, Delete)
-* RESTful API built with Laravel
-* Authentication system (register, login, logout)
+* Full CRUD operations (Create, Read, Update, Delete)
+* Inertia.js for seamless server-driven SPA experience
+* Authentication with Laravel Breeze and Sanctum
 * Protected routes for authenticated users
-* Vue.js frontend with Axios for API calls
-* Token‑based authentication using Laravel Sanctum or Passport (customizable)
+* Vue.js frontend powered by Vite
 * Clean, modular structure for scalability
 
 ## 🛠️ Tech Stack
 
-* **Frontend**: Vue.js, Vue Router, Axios
-* **Backend**: Laravel, Laravel Sanctum/Passport, MySQL/PostgreSQL
+* **Framework**: Laravel 12 with Breeze (Vue + Inertia preset)
+* **Frontend**: Vue.js, Inertia.js, Axios
+* **Authentication**: Laravel Sanctum
+* **Database**: MySQL/PostgreSQL
 * **Tools**: Composer, NPM/Yarn, Laravel Artisan
 
 ## 📦 Installation
-
-### Backend (Laravel)
 
 1. Clone the repository:
 
    ```bash
    git clone https://github.com/riordi80/vue-laravel-crud.git
-   cd your-repo-name/backend
+   cd your-repo-name
    ```
 
 2. Install PHP dependencies:
@@ -35,60 +34,31 @@ This is a full‑stack web application built with **Vue.js** for the frontend an
    composer install
    ```
 
-3. Set up environment variables:
+3. Install Node dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Set up environment variables:
 
    ```bash
    cp .env.example .env
    php artisan key:generate
    ```
 
-4. Configure `.env` with your database credentials.
+5. Configure `.env` with your database credentials.
 
-5. Run migrations:
+6. Run database migrations:
 
    ```bash
    php artisan migrate
    ```
 
-6. (Optional) Install Sanctum or Passport:
-
-   ```bash
-   composer require laravel/sanctum
-   php artisan vendor:publish --provider="Laravel\\Sanctum\\SanctumServiceProvider"
-   php artisan migrate
-   ```
-
-7. Serve the backend:
+7. Run the development servers:
 
    ```bash
    php artisan serve
-   ```
-
----
-
-### Frontend (Vue.js)
-
-1. Navigate to the frontend folder:
-
-   ```bash
-   cd ../frontend
-   ```
-
-2. Install Node dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Create a `.env` file if needed and set the API base URL:
-
-   ```
-   VITE_API_URL=http://localhost:8000/api
-   ```
-
-4. Start the development server:
-
-   ```bash
    npm run dev
    ```
 
@@ -96,30 +66,34 @@ This is a full‑stack web application built with **Vue.js** for the frontend an
 
 ## 🧪 Usage
 
-* Visit the frontend app at `http://localhost:5173/` (or the port Vue is using)
+* Visit the application at `http://localhost:8000`
 * Register a new user
-* Login and perform CRUD operations on your entities
-* Logout when finished
+* Login to access protected routes
+* Use the interface to perform CRUD operations
 
 ---
 
 ## 📁 Project Structure
 
 ```
-├── backend/         # Laravel backend
-│   ├── app/
-│   ├── routes/
-│   └── ...
-├── frontend/        # Vue.js frontend
-│   ├── src/
-│   └── ...
+├── app/
+├── bootstrap/
+├── database/
+├── public/
+├── resources/
+│   └── js/        # Vue.js components and Inertia pages
+├── routes/
+├── package.json
+├── vite.config.js
+├── artisan
+└── ...
 ```
 
 ---
 
 ## 🔒 Authentication
 
-Authentication is handled via Laravel Sanctum (or Passport). Once logged in, users receive a token that is used to access protected API routes. The frontend stores the token in local storage or Vuex/Pinia (configurable).
+Authentication is handled via Laravel Breeze and Sanctum. Inertia.js acts as a bridge between Laravel and Vue, enabling server-side routing and frontend rendering. Sanctum provides CSRF-based token authentication. Routes are protected using Laravel middleware.
 
 ---
 
